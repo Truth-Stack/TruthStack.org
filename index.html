@@ -14,65 +14,48 @@
 </header>
 
 <main class="stack-container">
-
-<a href="https://github.com/[Your-Username]/[Your-Repo]/tree/main/core" class="layer-button l3-fortress">
+<a href="https://github.com/[Your-Username]/[Your-Repo]/tree/main/core" class="layer-button l3-fortress active">
 <span class="layer-label">Layer 3</span>
 <span class="layer-title">THE FORTRESS</span>
-<span style="font-size: 0.7rem; margin-top: 10px; opacity: 0.7;">Mathematical Verification & Core Logic</span>
+<span class="layer-subtitle">Mathematical Verification & Core Logic</span>
 </a>
 
 <a href="#signal" class="layer-button l2-signal">
 <span class="layer-label">Layer 2</span>
 <span class="layer-title">THE SIGNAL</span>
-<span style="font-size: 0.7rem; margin-top: 10px; opacity: 0.7;">Bayesian Filtering & Peer Consensus</span>
+<span class="layer-subtitle">Bayesian Filtering & Peer Consensus</span>
 </a>
 
 <a href="#ocean" class="layer-button l1-ocean">
 <span class="layer-label">Layer 1</span>
 <span class="layer-title">THE OCEAN</span>
-<span style="font-size: 0.7rem; margin-top: 10px; opacity: 0.7;">Raw Data & Distributed Inputs</span>
+<span class="layer-subtitle">Raw Data & Distributed Inputs</span>
 </a>
-
 </main>
+
 <section class="manifesto">
 <h2>The Protocol of Reality</h2>
 <div class="manifesto-content">
-<p>
-In the 2026 information landscape, truth has become a casualty of scale. As synthetic data floods our digital commons, the line between <strong>signal</strong> and <strong>hallucination</strong> has blurred.
-</p>
-<p>
-The <strong>Truth Stack</strong> is a response to this decay. By decoupling raw data (The Ocean) from its mathematical verification (The Fortress), we provide a verifiable foundation for Spatial Intelligence, Public Policy, and Human Discourse.
-</p>
-<p>
-This is not a walled garden. It is <strong>Digital Public Infrastructure</strong>—designed to be non-extractive, open-source, and anchored in the math of the many.
-</p>
+<p>In the 2026 information landscape, truth has become a casualty of scale. As synthetic data floods our digital commons, the line between <strong>signal</strong> and <strong>hallucination</strong> has blurred.</p>
+<p>The <strong>Truth Stack</strong> is a response to this decay. By decoupling raw data (The Ocean) from its mathematical verification (The Fortress), we provide a verifiable foundation for Spatial Intelligence, Public Policy, and Human Discourse.</p>
+<p>This is not a walled garden. It is <strong>Digital Public Infrastructure</strong>—designed to be non-extractive, open-source, and anchored in the math of the many.</p>
 </div>
 </section>
+
 <footer>
-Genesis v1.1.0 | Decentralized Public Infrastructure
+Genesis v1.2.0 | Decentralized Public Infrastructure
 </footer>
+
 <script>
-// Select all buttons with the class 'layer-button'
 const buttons = document.querySelectorAll('.layer-button');
-
-      buttons.forEach(button => 
-{
-button.addEventListener('click', function(e) {
-// 1. Remove 'active' class from all buttons
-buttons.forEach(btn => 
-btn.classList.remove ('active'));
-
-// 2. Add 'active' class to the one we just clicked
+buttons.forEach(button => {
+button.addEventListener('click', function() {
+buttons.forEach(btn => btn.classList.remove('active'));
 this.classList.add('active');
-
-// Note: If you want the page to stay on this state after
-// the link clicks through, we can use 'localStorage' later.
-      });
-    });
+});
+});
 </script>
+
 </body>
 </html>
-
-
-
 
