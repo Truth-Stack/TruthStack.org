@@ -1,46 +1,131 @@
-:root {
---bg: #0f172a;
---accent: #38bdf8;
---glass: rgba(255, 255, 255, 0.05);
+/* TRUTH STACK PROTOCOL
+Global Stylesheet - V1.1.0 (Vertical Ascension Layout)
+*/
+
+/* 1. Global Reset & Foundation */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
 
 body {
-margin: 0; font-family: 'Inter', sans-serif;
-background-color: var(--bg); color: white;
-transition: all 0.5s ease;
+background-color: #050505; /* Deep space black */
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+color: #ffffff;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+overflow-x: hidden;
 }
 
-/* Layer Themes */
-body.layer-1 { --accent: #f472b6; background: radial-gradient(circle at top, #2e1065, #0f172a); }
-body.layer-2 { --accent: #fbbf24; background: #0f172a; }
-body.layer-3 { --accent: #38bdf8; background: #020617; }
-
-.glass-nav {
-display: flex; justify-content: space-between; padding: 20px 10%;
-backdrop-filter: blur(10px); border-bottom: 1px solid var(--glass);
-position: sticky; top: 0; z-index: 100;
+/* 2. Main Container */
+.stack-container {
+display: flex;
+flex-direction: column; /* The Vertical Ascension */
+align-items: center;
+gap: 20px;
+padding: 40px 20px;
+max-width: 400px;
+width: 100%;
 }
 
-.hero {
-text-align: center; padding: 100px 10%;
+/* 3. Header/Branding Area */
+header {
+text-align: center;
+margin-bottom: 30px;
 }
 
-.toggle-switch {
-display: inline-flex; background: var(--glass); border-radius: 50px; padding: 5px;
-margin-bottom: 30px; border: 1px solid rgba(255,255,255,0.1);
+header h1 {
+font-size: 1.8rem;
+letter-spacing: 4px;
+text-transform: uppercase;
+color: #00bcd4; /* Matches L3 */
+margin-bottom: 10px;
 }
 
-.toggle-switch button {
-background: none; border: none; color: white; padding: 10px 20px;
-border-radius: 50px; cursor: pointer; transition: 0.3s;
+header p {
+font-size: 0.9rem;
+color: #888;
+text-transform: uppercase;
+letter-spacing: 1px;
 }
 
-.toggle-switch button.active {
-background: var(--accent); color: black; font-weight: bold;
+/* 4. Layer Button Base Styles */
+.layer-button {
+width: 100%;
+padding: 25px;
+text-decoration: none;
+border-radius: 12px;
+color: white;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.glass-card {
-background: var(--glass); backdrop-filter: blur(15px);
-border: 1px solid rgba(255,255,255,0.1); padding: 30px;
-border-radius: 20px; margin: 20px;
+.layer-label {
+font-size: 0.7rem;
+font-weight: 800;
+letter-spacing: 3px;
+margin-bottom: 8px;
+opacity: 0.8;
+}
+
+.layer-title {
+font-size: 1.25rem;
+font-weight: 600;
+letter-spacing: 1px;
+}
+
+/* 5. The Depth Gradients (L3 to L1) */
+
+/* L3: The Fortress - Top/Eye Level */
+.l3-fortress {
+background: linear-gradient(135deg, #00bcd4 0%, #00acc1 100%);
+box-shadow: 0 0 20px rgba(0, 188, 212, 0.3);
+border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* L2: The Signal - Mid-Depth */
+.l2-signal {
+background: linear-gradient(135deg, #0077b6 0%, #005f92 100%);
+box-shadow: 0 0 15px rgba(0, 119, 182, 0.2);
+}
+
+/* L1: The Ocean - Deep Foundation */
+.l1-ocean {
+background: linear-gradient(135deg, #03045e 0%, #02022e 100%);
+opacity: 0.9;
+}
+
+/* 6. Interaction Effects */
+.layer-button:hover {
+transform: translateY(-8px) scale(1.02);
+box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+border-color: rgba(255, 255, 255, 0.6);
+filter: brightness(1.1);
+}
+
+/* 7. Footer/Legal Signal */
+footer {
+margin-top: 40px;
+font-size: 0.7rem;
+color: #444;
+text-transform: uppercase;
+letter-spacing: 2px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+.stack-container {
+width: 90%;
+}
+.layer-title {
+font-size: 1.1rem;
+}
 }
