@@ -1,47 +1,26 @@
-# 🏰 Truth Stack Protocol
-**The Digital Public Infrastructure for Verifiable Reality.**
+# 🧠 Layer 3: The Verification Engine
+**Mathematical Foundation for the Truth Stack Protocol**
 
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Identity](https://img.shields.io/badge/Identity-did:truthstack:genesis-7B61FF.svg)](https://www.truthstack.org)
-[![Security](https://img.shields.io/badge/Security-OpenSSF_Best_Practices-brightgreen.svg)](https://openssf.org/)
-[![Status](https://img.shields.io/badge/Phase-Genesis-orange.svg)](https://www.truthstack.org)
+## 🏛️ The "Cleave" Philosophy
+In standard digital systems, "truth" is often treated as a binary (True/False) or a social consensus (Likes/Retweets). In the 2026 landscape of synthetic data and spatial AI, these models are failing.
 
----
+The Truth Stack **cleaves** raw information from its verification. We treat truth as a **probability distribution**, not a fixed point. This allows the protocol to remain resilient even when individual "Pillars" (nodes) are compromised.
 
-## 🛡️ The Mission
-In the 2026 information landscape, the cost of verifying reality has become an **Innovation Tax**. Truth Stack is a decentralized protocol designed to decouple information discovery (**Layer 1**) from mathematical verification (**Layer 3**).
+## 🔬 Mathematical Framework: Bayesian Weighted Integrity
+The logic in `verification_logic.py` implements a Bayesian inference model to calculate the **Integrity Score** of any data packet.
 
-We are building a **Fortress of Math** to protect the digital commons from synthetic misinformation, algorithmic rents, and model collapse.
+### Key Parameters:
+1. **Source Reputation ($R_s$):** A rolling metric of a node's historical accuracy. This prevents "Sybil attacks" where new, fake accounts try to flood the system.
+2. **Consensus Rate ($C_p$):** The degree of agreement among independent, geographically dispersed Pillars.
+3. **Data Entropy ($E$):** A measure of uncertainty or noise within the signal itself.
 
-### 🏗️ Strategic Pillars
-* **Spatial Integrity:** Providing "Ground Truth" for spatial intelligence and world models to prevent perceptual poisoning.
-* **Non-Extractive Utility:** Replacing algorithmic rent-seeking with a verifiable digital commons.
-* **Digital Public Infrastructure (DPI):** Creating sovereign, open-source frameworks for global information governance.
+### The Verification Formula:
+The engine applies an **Entropy Penalty** to the weighted signal:
+$$Score = ((R_s \cdot W_{rep}) + (C_p \cdot W_{con})) \cdot (1 - (E \cdot W_{ent}))$$
 
----
-
-## 🏗️ Architecture: The Three-Layer Cleave
-Truth Stack operates on a modular hierarchy to ensure speed without sacrificing integrity:
-
-1. **Layer 1 (Discovery):** Real-time ingestion of raw data streams (Social, Sensor, and Web).
-2. **Layer 2 (Refinement):** Statistical filtering and noise reduction via community-audited logic.
-3. **Layer 3 (Verification):** **The Fortress.** Cryptographic anchoring and peer-attestation using the `did:truthstack` standard.
+## 🚀 Strategic Application
+* **Spatial Integrity (Fei-Fei Li / World Labs):** By penalizing high-entropy data, we ensure that World Models are not "poisoned" by hallucinations or physically impossible data points.
+* **Non-Extractive Utility (Mariana Mazzucato / UCL):** The protocol is designed to be a **Digital Public Good**. Verification is performed by the network, removing the need for "Algorithmic Rent" typically paid to centralized gatekeepers.
 
 ---
-
-## 🏛️ Join the Hall of Pillars
-We are seeking researchers, engineers, and civic leaders to help audit and anchor the protocol.
-
-1. **Verify the Anchor:** Check the Genesis Signature at [TruthStack.org](https://www.truthstack.org).
-2. **Audit the Core:** Review our L3 verification logic in the `/core` directory.
-3. **Submit Attestation:** Contribute to the verification pool to earn your place on the global leaderboard.
-
----
-
-## 🔐 Integrity & Security
-* **Security:** Please report vulnerabilities via encrypted channel to `security@truthstack.org`.
-* **Governance:** This project is licensed under **Apache 2.0** to ensure it remains a global public good.
-* **Identity:** Our root identity is anchored at `did:truthstack:genesis`. Accept no substitutes.
-
----
-*Managed by the Truth Stack Foundation | 2026*
+*“Truth is not what we say; it is what we can prove through the math of the many.”*
