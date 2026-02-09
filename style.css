@@ -129,3 +129,31 @@ width: 90%;
 font-size: 1.1rem;
 }
 }
+manifesto {
+max-width: 600px;
+margin: 60px auto;
+padding: 0 20px;
+text-align: left;
+line-height: 1.6;
+border-top: 1px solid rgba(255, 255, 255, 0.1);
+padding-top: 40px;
+}
+
+.manifesto h2 {
+font-size: 1.1rem;
+text-transform: uppercase;
+letter-spacing: 3px;
+color: #00bcd4;
+margin-bottom: 20px;
+}
+
+.manifesto-content p {
+margin-bottom: 20px;
+color: #ccc;
+font-size: 1rem;
+}
+
+.manifesto-content strong {
+color: #fff;
+font-weight: 600;
+}
