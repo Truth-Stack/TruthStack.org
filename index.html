@@ -14,7 +14,7 @@
 </header>
 
 <main class="stack-container">
-<a href="https://github.com/[Your-Username]/[Your-Repo]/tree/main/core" class="layer-button l3-fortress active">
+<a href="https://github.com/[Your-Username]/[Your-Repo]/tree/main/core" target="_blank" class="layer-button l3-fortress active">
 <span class="layer-label">Layer 3</span>
 <span class="layer-title">THE FORTRESS</span>
 <span class="layer-subtitle">Mathematical Verification & Core Logic</span>
@@ -43,10 +43,11 @@
 </section>
 
 <footer>
-Genesis v1.2.0 | Decentralized Public Infrastructure
+Genesis v1.2.1 | Decentralized Public Infrastructure
 </footer>
 
 <script>
+// Logic to move the 'Active' state and 'Engaged' LED on click
 const buttons = document.querySelectorAll('.layer-button');
 buttons.forEach(button => {
 button.addEventListener('click', function() {
@@ -58,4 +59,3 @@ this.classList.add('active');
 
 </body>
 </html>
-
