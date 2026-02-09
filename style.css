@@ -1,4 +1,4 @@
-/* TRUTH STACK PROTOCOL - V1.2.0 Master */
+/* TRUTH STACK PROTOCOL - V1.2.1 Master Build */
 
 * {
 margin: 0;
@@ -14,13 +14,13 @@ display: flex;
 flex-direction: column;
 align-items: center;
 min-height: 100vh;
-padding: 80px 20px;
+padding: 60px 20px; /* Reduced top padding to lift the whole layout */
 }
 
-/* 1. Header */
+/* 1. Header Branding */
 header {
 text-align: center;
-margin-bottom: 50px;
+margin-bottom: 40px;
 }
 
 header h1 {
@@ -28,12 +28,12 @@ font-size: 2.2rem;
 letter-spacing: 6px;
 text-transform: uppercase;
 color: #00bcd4;
-margin-bottom: 10px;
+margin-bottom: 8px;
 }
 
 header p {
-font-size: 0.8rem;
-color: #666;
+font-size: 0.75rem;
+color: #555;
 letter-spacing: 2px;
 text-transform: uppercase;
 }
@@ -43,15 +43,15 @@ text-transform: uppercase;
 display: flex;
 flex-direction: column;
 align-items: center;
-gap: 20px;
+gap: 18px;
 width: 100%;
 max-width: 320px;
-margin-bottom: 80px;
+margin-bottom: 35px; /* The "3-line lift" to bring manifesto up */
 }
 
 .layer-button {
 width: 100%;
-padding: 25px;
+padding: 24px;
 text-decoration: none;
 border-radius: 12px;
 color: white;
@@ -60,72 +60,76 @@ flex-direction: column;
 align-items: center;
 position: relative;
 transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-border: 1px solid rgba(255, 255, 255, 0.1);
+border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.layer-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 2px; margin-bottom: 5px; opacity: 0.7; }
-.layer-title { font-size: 1.2rem; font-weight: 600; }
-.layer-subtitle { font-size: 0.65rem; margin-top: 10px; opacity: 0.6; text-align: center; }
+.layer-label { font-size: 0.65rem; font-weight: 800; letter-spacing: 2px; margin-bottom: 4px; opacity: 0.7; }
+.layer-title { font-size: 1.15rem; font-weight: 600; }
+.layer-subtitle { font-size: 0.6rem; margin-top: 8px; opacity: 0.5; text-align: center; }
 
-/* 3. Layer Colors & Animations */
+/* 3. Layer Gradients & Animations */
 .l3-fortress { background: linear-gradient(135deg, #00bcd4, #00acc1); animation: heartbeat 4s infinite ease-in-out; }
 .l2-signal { background: linear-gradient(135deg, #0077b6, #005f92); }
 .l1-ocean { background: linear-gradient(135deg, #03045e, #02022e); opacity: 0.9; }
 
-/* 4. Active State / Error Prevention */
+/* 4. Active State (Human-Error Prevention) */
 .layer-button.active {
 border: 2px solid #ffffff;
-box-shadow: 0 0 30px rgba(0, 188, 212, 0.4);
-transform: scale(1.05);
+box-shadow: 0 0 25px rgba(0, 188, 212, 0.4);
+transform: scale(1.04);
 z-index: 10;
 }
 
-.layer-button.active::before { /* The Green LED */
+/* Active Status LED */
+.layer-button.active::before {
 content: "";
 position: absolute;
-left: 15px;
+left: 14px;
 top: 50%;
 transform: translateY(-50%);
-width: 8px;
-height: 8px;
+width: 7px;
+height: 7px;
 background-color: #00ff00;
 border-radius: 50%;
-box-shadow: 0 0 10px #00ff00;
+box-shadow: 0 0 8px #00ff00;
 }
 
-.layer-button.active::after { /* The Slide-out */
+/* Active Slide-out Label */
+.layer-button.active::after {
 content: "ENGAGED";
 position: absolute;
-right: -85px;
+right: -80px;
 top: 50%;
 transform: translateY(-50%);
-font-size: 0.6rem;
+font-size: 0.55rem;
 letter-spacing: 2px;
 color: #00ff00;
 font-weight: bold;
+opacity: 0.8;
 }
 
-/* 5. Manifesto Section */
+/* 5. Manifesto Section (Centered & Guttered) */
 .manifesto {
 width: 100%;
-max-width: 500px; /* The "Halfway Gutter" width */
+max-width: 480px;
 text-align: center;
 border-top: 1px solid rgba(255, 255, 255, 0.1);
-padding-top: 50px;
+padding-top: 35px;
 }
 
-.manifesto h2 { font-size: 1rem; color: #00bcd4; letter-spacing: 3px; margin-bottom: 25px; text-transform: uppercase; }
-.manifesto-content p { color: #aaa; line-height: 1.8; margin-bottom: 20px; font-size: 0.95rem; }
+.manifesto h2 { font-size: 0.9rem; color: #00bcd4; letter-spacing: 3px; margin-bottom: 20px; text-transform: uppercase; }
+.manifesto-content p { color: #999; line-height: 1.7; margin-bottom: 18px; font-size: 0.9rem; }
 .manifesto-content strong { color: #fff; }
 
-/* 6. Animations & Footer */
+/* 6. Utility Keyframes */
 @keyframes heartbeat {
 0%, 100% { box-shadow: 0 0 10px rgba(0, 188, 212, 0.2); }
-50% { box-shadow: 0 0 25px rgba(0, 188, 212, 0.5); }
+50% { box-shadow: 0 0 20px rgba(0, 188, 212, 0.4); }
 }
 
-footer { margin-top: 60px; font-size: 0.6rem; color: #333; letter-spacing: 2px; }
+footer { margin-top: 50px; font-size: 0.6rem; color: #222; letter-spacing: 2px; }
 
-.layer-button:hover:not(.active) { transform: translateY(-5px); filter: brightness(1.2); }
+/* Hover effect only for non-active buttons */
+.layer-button:hover:not(.active) { transform: translateY(-4px); filter: brightness(1.1); }
 
 
