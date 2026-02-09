@@ -1,0 +1,46 @@
+:root {
+--bg: #0f172a;
+--accent: #38bdf8;
+--glass: rgba(255, 255, 255, 0.05);
+}
+
+body {
+margin: 0; font-family: 'Inter', sans-serif;
+background-color: var(--bg); color: white;
+transition: all 0.5s ease;
+}
+
+/* Layer Themes */
+body.layer-1 { --accent: #f472b6; background: radial-gradient(circle at top, #2e1065, #0f172a); }
+body.layer-2 { --accent: #fbbf24; background: #0f172a; }
+body.layer-3 { --accent: #38bdf8; background: #020617; }
+
+.glass-nav {
+display: flex; justify-content: space-between; padding: 20px 10%;
+backdrop-filter: blur(10px); border-bottom: 1px solid var(--glass);
+position: sticky; top: 0; z-index: 100;
+}
+
+.hero {
+text-align: center; padding: 100px 10%;
+}
+
+.toggle-switch {
+display: inline-flex; background: var(--glass); border-radius: 50px; padding: 5px;
+margin-bottom: 30px; border: 1px solid rgba(255,255,255,0.1);
+}
+
+.toggle-switch button {
+background: none; border: none; color: white; padding: 10px 20px;
+border-radius: 50px; cursor: pointer; transition: 0.3s;
+}
+
+.toggle-switch button.active {
+background: var(--accent); color: black; font-weight: bold;
+}
+
+.glass-card {
+background: var(--glass); backdrop-filter: blur(15px);
+border: 1px solid rgba(255,255,255,0.1); padding: 30px;
+border-radius: 20px; margin: 20px;
+}
