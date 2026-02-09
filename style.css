@@ -1,8 +1,7 @@
 /* TRUTH STACK PROTOCOL
-Global Stylesheet - V1.1.0 (Vertical Ascension Layout)
+Global Stylesheet - V1.2.0 (Refined Vertical Alignment)
 */
 
-/* 1. Global Reset & Foundation */
 * {
 margin: 0;
 padding: 0;
@@ -10,150 +9,103 @@ box-sizing: border-box;
 }
 
 body {
-background-color: #050505; /* Deep space black */
-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+background-color: #050505;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 color: #ffffff;
 display: flex;
 flex-direction: column;
-justify-content: center;
-align-items: center;
+align-items: center; /* Centers everything horizontally */
 min-height: 100vh;
-overflow-x: hidden;
+padding: 60px 20px; /* Gives top/bottom breathing room */
 }
 
-/* 2. Main Container */
-.stack-container {
-display: flex;
-flex-direction: column; /* The Vertical Ascension */
-align-items: center;
-gap: 20px;
-padding: 40px 20px;
-max-width: 400px;
-width: 100%;
-}
-
-/* 3. Header/Branding Area */
+/* 1. Header Branding */
 header {
 text-align: center;
-margin-bottom: 30px;
+margin-bottom: 50px;
 }
 
 header h1 {
-font-size: 1.8rem;
-letter-spacing: 4px;
+font-size: 2.2rem;
+letter-spacing: 6px;
 text-transform: uppercase;
-color: #00bcd4; /* Matches L3 */
+color: #00bcd4;
 margin-bottom: 10px;
 }
 
 header p {
-font-size: 0.9rem;
-color: #888;
-text-transform: uppercase;
-letter-spacing: 1px;
+font-size: 0.8rem;
+color: #666;
+letter-spacing: 2px;
 }
 
-/* 4. Layer Button Base Styles */
+/* 2. Button Stack (Fixed Width) */
+.stack-container {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 20px;
+width: 100%;
+max-width: 320px; /* The Anchor Width */
+margin-bottom: 60px;
+}
+
 .layer-button {
 width: 100%;
-padding: 25px;
+padding: 22px;
 text-decoration: none;
 border-radius: 12px;
 color: white;
 display: flex;
 flex-direction: column;
 align-items: center;
-justify-content: center;
-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+transition: all 0.3s ease;
 border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.layer-label {
-font-size: 0.7rem;
-font-weight: 800;
-letter-spacing: 3px;
-margin-bottom: 8px;
-opacity: 0.8;
-}
+/* Layer Depth Gradients */
+.l3-fortress { background: linear-gradient(135deg, #00bcd4, #00acc1); border: 1px solid rgba(255, 255, 255, 0.4); animation: fortress-glow 4s infinite ease-in-out; }
+.l2-signal { background: linear-gradient(135deg, #0077b6, #005f92); }
+.l1-ocean { background: linear-gradient(135deg, #03045e, #02022e); opacity: 0.9; }
 
-.layer-title {
-font-size: 1.25rem;
-font-weight: 600;
-letter-spacing: 1px;
-}
+.layer-button:hover { transform: translateY(-5px); filter: brightness(1.2); }
 
-/* 5. The Depth Gradients (L3 to L1) */
-
-/* L3: The Fortress - Top/Eye Level */
-.l3-fortress {
-background: linear-gradient(135deg, #00bcd4 0%, #00acc1 100%);
-box-shadow: 0 0 20px rgba(0, 188, 212, 0.3);
-border: 1px solid rgba(255, 255, 255, 0.4);
-}
-
-/* L2: The Signal - Mid-Depth */
-.l2-signal {
-background: linear-gradient(135deg, #0077b6 0%, #005f92 100%);
-box-shadow: 0 0 15px rgba(0, 119, 182, 0.2);
-}
-
-/* L1: The Ocean - Deep Foundation */
-.l1-ocean {
-background: linear-gradient(135deg, #03045e 0%, #02022e 100%);
-opacity: 0.9;
-}
-
-/* 6. Interaction Effects */
-.layer-button:hover {
-transform: translateY(-8px) scale(1.02);
-box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
-border-color: rgba(255, 255, 255, 0.6);
-filter: brightness(1.1);
-}
-
-/* 7. Footer/Legal Signal */
-footer {
-margin-top: 40px;
-font-size: 0.7rem;
-color: #444;
-text-transform: uppercase;
-letter-spacing: 2px;
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 480px) {
-.stack-container {
-width: 90%;
-}
-.layer-title {
-font-size: 1.1rem;
-}
-}
-manifesto {
-max-width: 600px;
-margin: 60px auto;
-padding: 0 20px;
-text-align: left;
-line-height: 1.6;
+/* 3. The Manifesto (Centered & Guttered) */
+.manifesto {
+/* This creates the "halfway" margin you requested */
+width: 100%;
+max-width: 500px; /* Slightly wider than buttons (320px) but narrower than screen */
+text-align: center; /* Centering the text for humans */
 border-top: 1px solid rgba(255, 255, 255, 0.1);
 padding-top: 40px;
 }
 
 .manifesto h2 {
-font-size: 1.1rem;
-text-transform: uppercase;
+font-size: 1rem;
 letter-spacing: 3px;
+text-transform: uppercase;
 color: #00bcd4;
-margin-bottom: 20px;
+margin-bottom: 25px;
 }
 
 .manifesto-content p {
+font-size: 0.95rem;
+line-height: 1.8;
+color: #aaa;
 margin-bottom: 20px;
-color: #ccc;
-font-size: 1rem;
 }
 
-.manifesto-content strong {
-color: #fff;
-font-weight: 600;
+/* 4. Utilities */
+@keyframes fortress-glow {
+0%, 100% { box-shadow: 0 0 10px rgba(0, 188, 212, 0.2); }
+50% { box-shadow: 0 0 25px rgba(0, 188, 212, 0.5); }
 }
+
+footer {
+margin-top: auto; /* Pushes footer to bottom */
+padding: 40px 0;
+font-size: 0.65rem;
+color: #333;
+letter-spacing: 2px;
+}
+
