@@ -55,21 +55,24 @@ Genesis v1.1.0 | Decentralized Public Infrastructure
 // Select all buttons with the class 'layer-button'
 const buttons = document.querySelectorAll('.layer-button');
 
-buttons.forEach(button => {
+      buttons.forEach(button => 
+{
 button.addEventListener('click', function(e) {
 // 1. Remove 'active' class from all buttons
-buttons.forEach(btn => btn.classList.remove('active'));
+buttons.forEach(btn => 
+btn.classList.remove ('active'));
 
 // 2. Add 'active' class to the one we just clicked
 this.classList.add('active');
 
 // Note: If you want the page to stay on this state after
 // the link clicks through, we can use 'localStorage' later.
-});
-});
+      });
+    });
 </script>
 </body>
 </html>
+
 
 
 
