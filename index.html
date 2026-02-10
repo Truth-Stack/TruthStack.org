@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Truth Stack Protocol | Interactive Genesis</title>
+<title>Truth Stack Protocol</title>
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
 </head>
@@ -18,24 +18,24 @@
 
 <main class="stack-container">
 <div class="input-section">
-<input type="text" id="user-concept" placeholder="Enter a concept (e.g. Gravity, Justice, AI)...">
+<input type="text" id="user-concept" placeholder="Enter a concept to deconstruct...">
 <button id="process-btn">ANALYZE</button>
 </div>
 
 <div class="stack-layers">
-<div class="layer-button l1-fortress active" data-layer="l1" style="cursor: pointer;">
+<div class="layer-button l1-fortress" data-layer="l1">
 <span class="layer-label">Layer 1</span>
 <span class="layer-title">THE FORTRESS</span>
 <span class="layer-subtitle">Verifiable Ground Truth</span>
 </div>
 
-<div class="layer-button l2-lab" data-layer="l2" style="cursor: pointer;">
+<div class="layer-button l2-lab" data-layer="l2">
 <span class="layer-label">Layer 2</span>
 <span class="layer-title">THE LABORATORY</span>
 <span class="layer-subtitle">Empirical Testing & Logic Filters</span>
 </div>
 
-<div class="layer-button l3-dream" data-layer="l3" style="cursor: pointer;">
+<div class="layer-button l3-dream" data-layer="l3">
 <span class="layer-label">Layer 3</span>
 <span class="layer-title">AI DREAMS</span>
 <span class="layer-subtitle">Generative Imagination</span>
@@ -44,12 +44,10 @@
 
 <div id="stack-output" class="output-console">
 <div class="status-bar">
-<span id="console-dot" class="status-dot" style="background-color: #00bcd4;"></span>
-<span id="output-title">L1: THE FORTRESS (DEFAULT)</span>
+<span id="console-dot" class="status-dot"></span>
+<span id="output-title">INITIALIZING...</span>
 </div>
-<div id="output-text" class="output-body">
-SYSTEM STANDBY. Enter a concept to begin deconstruction, or select a layer to view the protocol state.
-</div>
+<div id="output-text" class="output-body"></div>
 </div>
 </main>
 
@@ -71,12 +69,12 @@ activeBtn.classList.add('active');
 const library = {
 'l1': {
 title: "L1: THE FORTRESS (VERIFIED STATE)",
-text: `CORE TRUTH: "${currentConcept}" is mathematically anchored. Proof-of-Logic secured. Reality State: Immutable. [VIEW REPOSITORY SOURCE](https://github.com/Truth-Stack/TruthStack.org/tree/main/core)`,
+html: `CORE TRUTH: "${currentConcept}" is mathematically anchored. Proof-of-Logic secured. Reality State: Immutable.<br><br><a href="https://github.com/Truth-Stack/TruthStack.org/tree/main/core" target="_blank" class="fortress-link">ACCESS THE FORTRESS BLUEPRINTS →</a>`,
 color: "#00bcd4"
 },
 'l2': {
 title: "L2: THE LABORATORY (RECONSTRUCTION)",
-text: `REVERSE ANALYSIS: Deconstructing "${currentConcept}" into testable variables. Removing institutional weight. Bayesian filters active. Signal-to-noise ratio: 88%.`,
+text: `REVERSE ANALYSIS: Deconstructing "${currentConcept}" into testable variables. Removing institutional weight. Bayesian filters active. Signal-to-noise ratio: 88%. Metaphoric artifacts removed.`,
 color: "#0077b6"
 },
 'l3': {
@@ -86,31 +84,32 @@ color: "#4b0082"
 }
 };
 
-// Update title and color
 outputTitle.innerText = library[layer].title;
 consoleDot.style.backgroundColor = library[layer].color;
 
-// Handle the text and the link separately for L1
 if (layer === 'l1') {
-const linkUrl = "https://github.com/Truth-Stack/TruthStack.org/tree/main/core";
-outputText.innerHTML = `CORE TRUTH: "${currentConcept}" is mathematically anchored. Proof-of-Logic secured. Reality State: Immutable.<br><br><a href="${linkUrl}" target="_blank" style="color:#fff; text-decoration:underline;">ACCESS THE FORTRESS BLUEPRINTS →</a>`;
+outputText.innerHTML = library[layer].html;
+outputText.style.color = "#00bcd4";
 } else {
 outputText.innerText = library[layer].text;
+outputText.style.color = "#a0a0a0";
 }
 }
 
 processBtn.addEventListener('click', () => {
 if(conceptInput.value.trim() !== "") {
 currentConcept = conceptInput.value;
-updateStack('l1'); // Start at the solid top
+updateStack('l1');
 }
 });
 
 buttons.forEach(button => {
-button.addEventListener('click', function() {
-updateStack(this.getAttribute('data-layer'));
+button.addEventListener('click', () => updateStack(button.getAttribute('data-layer')));
 });
-});
+
+// Start at Fortress
+updateStack('l1');
 </script>
 </body>
 </html>
+
