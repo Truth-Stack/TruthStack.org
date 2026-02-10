@@ -15,71 +15,79 @@
 </header>
 
 <main class="stack-container">
-<div class="input-section">
-<input type="text" id="user-concept" placeholder="Enter a concept to deconstruct...">
-<button id="process-btn">ANALYZE</button>
-</div>
-
 <div class="vertical-stack">
 
-<div class="stack-row">
 <div class="layer-button l1-fortress active" data-layer="l1">
 <span class="layer-label">Layer 1</span>
 <span class="layer-title">THE FORTRESS</span>
-</div>
-<div class="response-text res-right" id="res-l1">Awaiting analysis...</div>
+<span class="layer-subtitle">Verifiable Ground Truth</span>
 </div>
 
-<div class="stack-row">
-<div class="response-text res-left" id="res-l2">Awaiting analysis...</div>
 <div class="layer-button l2-lab" data-layer="l2">
 <span class="layer-label">Layer 2</span>
 <span class="layer-title">THE LABORATORY</span>
-</div>
+<span class="layer-subtitle">Empirical Testing & Logic Filters</span>
 </div>
 
-<div class="stack-row">
 <div class="layer-button l3-dream" data-layer="l3">
 <span class="layer-label">Layer 3</span>
 <span class="layer-title">AI DREAMS</span>
-</div>
-<div class="response-text res-right" id="res-l3">Awaiting analysis...</div>
+<span class="layer-subtitle">Generative Imagination</span>
 </div>
 
+</div>
+
+<div id="stack-output" class="output-console">
+<div class="status-bar">
+<span id="console-dot" class="status-dot"></span>
+<span id="output-title">PROTOCOL STANDBY</span>
+</div>
+<div id="output-text" class="output-body">
+Select a layer to initialize the verification sequence...
+</div>
 </div>
 </main>
 
 <script>
-const conceptInput = document.getElementById('user-concept');
-const processBtn = document.getElementById('process-btn');
+const outputTitle = document.getElementById('output-title');
+const outputText = document.getElementById('output-text');
 const buttons = document.querySelectorAll('.layer-button');
+const consoleDot = document.getElementById('console-dot');
 
-function updateAllLayers() {
-const concept = conceptInput.value || "Truth";
-
-const library = {
-'l1': `VERIFIED: "${concept}" is mathematically anchored. Proof-of-Logic secured. <br><a href="https://github.com/Truth-Stack/TruthStack.org/tree/main/core" target="_blank" style="color:#00bcd4; font-weight:bold;">SOURCE →</a>`,
-'l2': `TESTING: Deconstructing "${concept}" into testable variables. Removing generative noise. Bayesian filters active.`,
-'l3': `DREAMING: Returning "${concept}" to the neural ocean. Rules of logic suspended. Pure potentiality.`
+const protocol = {
+'l1': {
+title: "L1: THE FORTRESS (VERIFIED)",
+text: "The final arbiter of reality. Here, information is anchored through recursive logic and mathematical proof. It is the solid ground upon which institutions are built.",
+color: "#00bcd4"
+},
+'l2': {
+title: "L2: THE LABORATORY (EMPIRICAL)",
+text: "The filtering tier. Raw inputs are cross-referenced, tested against the Information Commons, and subjected to Bayesian analysis to separate signal from noise.",
+color: "#0077b6"
+},
+'l3': {
+title: "L3: AI DREAMS (GENERATIVE)",
+text: "The realm of pure potentiality. Here, the rules of the world don't apply. It is a vast, unconstrained imagination engine where ideas begin as fluid metaphors.",
+color: "#4b0082"
+}
 };
 
-document.getElementById('res-l1').innerHTML = library['l1'];
-document.getElementById('res-l2').innerText = library['l2'];
-document.getElementById('res-l3').innerText = library['l3'];
+function updateLayer(id) {
+buttons.forEach(btn => btn.classList.remove('active'));
+document.querySelector(`[data-layer="${id}"]`).classList.add('active');
 
-// Auto-highlight L1 on analyze
-buttons.forEach(b => b.classList.remove('active'));
-document.querySelector('.l1-fortress').classList.add('active');
+outputTitle.innerText = protocol[id].title;
+outputText.innerText = protocol[id].text;
+consoleDot.style.backgroundColor = protocol[id].color;
 }
 
-processBtn.addEventListener('click', updateAllLayers);
-
 buttons.forEach(button => {
-button.addEventListener('click', function() {
-buttons.forEach(b => b.classList.remove('active'));
-this.classList.add('active');
+button.addEventListener('click', () => updateLayer(button.getAttribute('data-layer')));
 });
-});
+
+// Initialize
+updateLayer('l1');
 </script>
 </body>
 </html>
+
