@@ -11,9 +11,7 @@
 
 <header>
 <div class="logo">TRUTH STACK</div>
-<div class="status-indicator">
-<span class="pulse-dot"></span> SYSTEM ACTIVE
-</div>
+<div class="status-indicator"><span class="pulse-dot"></span> SYSTEM ACTIVE</div>
 </header>
 
 <main class="stack-container">
@@ -22,93 +20,64 @@
 <button id="process-btn">ANALYZE</button>
 </div>
 
-<div class="stack-layers">
-<div class="layer-button l1-fortress" data-layer="l1">
+<div class="zig-zag-area">
+
+<div class="row row-right">
+<div class="layer-button l1-fortress active" data-layer="l1">
 <span class="layer-label">Layer 1</span>
 <span class="layer-title">THE FORTRESS</span>
-<span class="layer-subtitle">Verifiable Ground Truth</span>
+</div>
+<div class="response-box" id="res-l1">Awaiting Analysis...</div>
 </div>
 
+<div class="row row-left">
+<div class="response-box" id="res-l2">Awaiting Analysis...</div>
 <div class="layer-button l2-lab" data-layer="l2">
 <span class="layer-label">Layer 2</span>
 <span class="layer-title">THE LABORATORY</span>
-<span class="layer-subtitle">Empirical Testing & Logic Filters</span>
+</div>
 </div>
 
+<div class="row row-right">
 <div class="layer-button l3-dream" data-layer="l3">
 <span class="layer-label">Layer 3</span>
 <span class="layer-title">AI DREAMS</span>
-<span class="layer-subtitle">Generative Imagination</span>
 </div>
+<div class="response-box" id="res-l3">Awaiting Analysis...</div>
 </div>
 
-<div id="stack-output" class="output-console">
-<div class="status-bar">
-<span id="console-dot" class="status-dot"></span>
-<span id="output-title">INITIALIZING...</span>
-</div>
-<div id="output-text" class="output-body"></div>
 </div>
 </main>
 
 <script>
 const conceptInput = document.getElementById('user-concept');
 const processBtn = document.getElementById('process-btn');
-const outputTitle = document.getElementById('output-title');
-const outputText = document.getElementById('output-text');
 const buttons = document.querySelectorAll('.layer-button');
-const consoleDot = document.getElementById('console-dot');
 
-let currentConcept = "Reality";
+let currentConcept = "Truth";
 
-function updateStack(layer) {
-buttons.forEach(btn => btn.classList.remove('active'));
-const activeBtn = document.querySelector(`[data-layer="${layer}"]`);
-activeBtn.classList.add('active');
+function updateAllLayers() {
+currentConcept = conceptInput.value || "Truth";
 
 const library = {
-'l1': {
-title: "L1: THE FORTRESS (VERIFIED STATE)",
-html: `CORE TRUTH: "${currentConcept}" is mathematically anchored. Proof-of-Logic secured. Reality State: Immutable.<br><br><a href="https://github.com/Truth-Stack/TruthStack.org/tree/main/core" target="_blank" class="fortress-link">ACCESS THE FORTRESS BLUEPRINTS →</a>`,
-color: "#00bcd4"
-},
-'l2': {
-title: "L2: THE LABORATORY (RECONSTRUCTION)",
-text: `REVERSE ANALYSIS: Deconstructing "${currentConcept}" into testable variables. Removing institutional weight. Bayesian filters active. Signal-to-noise ratio: 88%. Metaphoric artifacts removed.`,
-color: "#0077b6"
-},
-'l3': {
-title: "L3: AI DREAMS (FLUID STATE)",
-text: `DREAM SEQUENCE: Returning "${currentConcept}" to the neural ocean. Rules of logic suspended. It exists now as pure potentiality—a thousand flickering metaphors in the digital subconscious.`,
-color: "#4b0082"
-}
+'l1': `CORE TRUTH: "${currentConcept}" is mathematically anchored. Proof-of-Logic secured. <br><a href="https://github.com/Truth-Stack/TruthStack.org/tree/main/core" target="_blank" style="color:#00bcd4;">SOURCE →</a>`,
+'l2': `REVERSE ANALYSIS: Deconstructing "${currentConcept}" into testable variables. Removing noise.`,
+'l3': `DREAM SEQUENCE: Returning "${currentConcept}" to the neural ocean. Rules of logic suspended.`
 };
 
-outputTitle.innerText = library[layer].title;
-consoleDot.style.backgroundColor = library[layer].color;
-
-if (layer === 'l1') {
-outputText.innerHTML = library[layer].html;
-outputText.style.color = "#00bcd4";
-} else {
-outputText.innerText = library[layer].text;
-outputText.style.color = "#a0a0a0";
-}
+document.getElementById('res-l1').innerHTML = library['l1'];
+document.getElementById('res-l2').innerText = library['l2'];
+document.getElementById('res-l3').innerText = library['l3'];
 }
 
-processBtn.addEventListener('click', () => {
-if(conceptInput.value.trim() !== "") {
-currentConcept = conceptInput.value;
-updateStack('l1');
-}
-});
+processBtn.addEventListener('click', updateAllLayers);
 
 buttons.forEach(button => {
-button.addEventListener('click', () => updateStack(button.getAttribute('data-layer')));
+button.addEventListener('click', function() {
+buttons.forEach(b => b.classList.remove('active'));
+this.classList.add('active');
 });
-
-// Start at Fortress
-updateStack('l1');
+});
 </script>
 </body>
 </html>
