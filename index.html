@@ -1,86 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Truth Stack Protocol | Genesis</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<header>
-<div class="logo">TRUTH STACK</div>
-<div class="status-indicator">
-<span class="pulse-dot"></span> SYSTEM ACTIVE
-</div>
-</header>
-
 <main class="stack-container">
-<a href="https://github.com/Truth-Stack/TruthStack.org/tree/main/core" target="_blank" class="layer-button l1-fortress active" data-layer="l1">
+<div class="input-section">
+<input type="text" id="user-input" placeholder="Enter a concept to verify...">
+<button id="launch-button">INITIALIZE STACK</button>
+</div>
+
+<div class="layers">
+<a href="https://github.com/Truth-Stack/TruthStack.org/tree/main/core" target="_blank" class="layer-button l1-fortress" data-layer="l1">
 <span class="layer-label">Layer 1</span>
 <span class="layer-title">THE FORTRESS</span>
-<span class="layer-subtitle">Mathematical Verification & Core Logic</span>
 </a>
-
 <a href="#lab" class="layer-button l2-lab" data-layer="l2">
 <span class="layer-label">Layer 2</span>
 <span class="layer-title">THE LABORATORY</span>
-<span class="layer-subtitle">Evidence Testing & Peer Consensus</span>
 </a>
-
-<a href="#dreams" class="layer-button l3-dreams" data-layer="l3">
+<a href="#dreams" class="layer-button l3-dreams active" data-layer="l3">
 <span class="layer-label">Layer 3</span>
 <span class="layer-title">AI DREAMS</span>
-<span class="layer-subtitle">Generative Imagination & Raw Potential</span>
 </a>
+</div>
 
 <div id="stack-output" class="output-console">
 <div class="status-bar">
 <span class="status-dot"></span>
-<span id="output-title">SYSTEM INITIALIZED</span>
+<span id="output-title">READY FOR INPUT</span>
 </div>
 <div id="output-text" class="output-body">
-Select a layer to initialize the verification sequence...
+Input a concept above to begin the distillation process...
 </div>
 </div>
 </main>
-
-<script>
-const demos = {
-'l1': {
-title: "LAYER 1: THE FORTRESS (VERIFIED)",
-text: "REALITY LOCK SUSTAINED. P(H|E) = 0.9998. MATHEMATICAL PROOF COMMITTED TO CORE LOGIC. THE DREAM HAS BEEN MANIFESTED INTO VERIFIED STATE."
-},
-'l2': {
-title: "LAYER 2: THE LABORATORY (TESTING)",
-text: "DISTILLING IMAGINATION... APPLYING BAYESIAN FILTERS. CROSS-EXAMINING PEER DATA. CONSENSUS ACHIEVED: 91.2% VALIDITY SCORE."
-},
-'l3': {
-title: "LAYER 3: AI DREAMS (GENERATIVE)",
-text: "ENTERING GENERATIVE STATE. IMAGINATION ENGINE ACTIVE. RULES OF LOGIC SUSPENDED. NOTE: NOT TO BE TAKEN AS REALITY UNTIL TESTED IN THE LAB."
-}
-};
-
-const buttons = document.querySelectorAll('.layer-button');
-const outputTitle = document.getElementById('output-title');
-const outputText = document.getElementById('output-text');
-
-buttons.forEach(button => {
-button.addEventListener('click', function(e) {
-// Only prevent default for internal anchors
-if(this.getAttribute('href').startsWith('#')) e.preventDefault();
-
-buttons.forEach(btn => btn.classList.remove('active'));
-this.classList.add('active');
-
-const layer = this.getAttribute('data-layer');
-outputTitle.innerText = demos[layer].title;
-outputText.innerText = demos[layer].text;
-});
-});
-</script>
-</body>
-</html>
-
-
 
