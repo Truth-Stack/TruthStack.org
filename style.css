@@ -1,4 +1,4 @@
-/* TRUTH STACK PROTOCOL - V1.2.1 Master Build */
+/* TRUTH STACK PROTOCOL - V1.3.0 Master Build */
 
 * {
 margin: 0;
@@ -14,10 +14,10 @@ display: flex;
 flex-direction: column;
 align-items: center;
 min-height: 100vh;
-padding: 60px 20px; /* Reduced top padding to lift the whole layout */
+padding: 60px 20px;
 }
 
-/* 1. Header Branding */
+/* 1. Header */
 header {
 text-align: center;
 margin-bottom: 40px;
@@ -45,13 +45,13 @@ flex-direction: column;
 align-items: center;
 gap: 18px;
 width: 100%;
-max-width: 320px;
-margin-bottom: 35px; /* The "3-line lift" to bring manifesto up */
+max-width: 340px;
+margin-bottom: 35px;
 }
 
 .layer-button {
 width: 100%;
-padding: 24px;
+padding: 22px;
 text-decoration: none;
 border-radius: 12px;
 color: white;
@@ -67,20 +67,18 @@ border: 1px solid rgba(255, 255, 255, 0.08);
 .layer-title { font-size: 1.15rem; font-weight: 600; }
 .layer-subtitle { font-size: 0.6rem; margin-top: 8px; opacity: 0.5; text-align: center; }
 
-/* 3. Layer Gradients & Animations */
+/* 3. Layer Gradients */
 .l3-fortress { background: linear-gradient(135deg, #00bcd4, #00acc1); animation: heartbeat 4s infinite ease-in-out; }
 .l2-signal { background: linear-gradient(135deg, #0077b6, #005f92); }
 .l1-ocean { background: linear-gradient(135deg, #03045e, #02022e); opacity: 0.9; }
 
-/* 4. Active State (Human-Error Prevention) */
+/* 4. Active State & LED */
 .layer-button.active {
 border: 2px solid #ffffff;
 box-shadow: 0 0 25px rgba(0, 188, 212, 0.4);
 transform: scale(1.04);
-z-index: 10;
 }
 
-/* Active Status LED */
 .layer-button.active::before {
 content: "";
 position: absolute;
@@ -94,7 +92,6 @@ border-radius: 50%;
 box-shadow: 0 0 8px #00ff00;
 }
 
-/* Active Slide-out Label */
 .layer-button.active::after {
 content: "ENGAGED";
 position: absolute;
@@ -105,10 +102,32 @@ font-size: 0.55rem;
 letter-spacing: 2px;
 color: #00ff00;
 font-weight: bold;
-opacity: 0.8;
 }
 
-/* 5. Manifesto Section (Centered & Guttered) */
+/* 5. Demo Console Styling */
+.output-console {
+width: 100%;
+background: #000;
+border: 1px solid #222;
+border-radius: 8px;
+margin-top: 10px;
+font-family: 'Courier New', Courier, monospace;
+}
+
+.status-bar {
+background: #111;
+padding: 8px 15px;
+border-bottom: 1px solid #222;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.status-dot { width: 8px; height: 8px; background: #00ff00; border-radius: 50%; box-shadow: 0 0 5px #00ff00; }
+#output-title { font-size: 0.6rem; color: #555; letter-spacing: 1px; }
+.output-body { padding: 15px; font-size: 0.8rem; color: #00ff00; line-height: 1.4; min-height: 100px; text-align: left; }
+
+/* 6. Manifesto & Animations */
 .manifesto {
 width: 100%;
 max-width: 480px;
@@ -119,17 +138,13 @@ padding-top: 35px;
 
 .manifesto h2 { font-size: 0.9rem; color: #00bcd4; letter-spacing: 3px; margin-bottom: 20px; text-transform: uppercase; }
 .manifesto-content p { color: #999; line-height: 1.7; margin-bottom: 18px; font-size: 0.9rem; }
-.manifesto-content strong { color: #fff; }
 
-/* 6. Utility Keyframes */
 @keyframes heartbeat {
 0%, 100% { box-shadow: 0 0 10px rgba(0, 188, 212, 0.2); }
 50% { box-shadow: 0 0 20px rgba(0, 188, 212, 0.4); }
 }
 
-footer { margin-top: 50px; font-size: 0.6rem; color: #222; letter-spacing: 2px; }
-
-/* Hover effect only for non-active buttons */
+footer { margin-top: 40px; font-size: 0.6rem; color: #222; letter-spacing: 2px; }
 .layer-button:hover:not(.active) { transform: translateY(-4px); filter: brightness(1.1); }
 
 
