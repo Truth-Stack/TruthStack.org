@@ -20,30 +20,30 @@
 <button id="process-btn">ANALYZE</button>
 </div>
 
-<div class="zig-zag-area">
+<div class="vertical-stack">
 
-<div class="row row-right">
+<div class="stack-row">
 <div class="layer-button l1-fortress active" data-layer="l1">
 <span class="layer-label">Layer 1</span>
 <span class="layer-title">THE FORTRESS</span>
 </div>
-<div class="response-box" id="res-l1">Awaiting Analysis...</div>
+<div class="response-text res-right" id="res-l1">Awaiting analysis...</div>
 </div>
 
-<div class="row row-left">
-<div class="response-box" id="res-l2">Awaiting Analysis...</div>
+<div class="stack-row">
+<div class="response-text res-left" id="res-l2">Awaiting analysis...</div>
 <div class="layer-button l2-lab" data-layer="l2">
 <span class="layer-label">Layer 2</span>
 <span class="layer-title">THE LABORATORY</span>
 </div>
 </div>
 
-<div class="row row-right">
+<div class="stack-row">
 <div class="layer-button l3-dream" data-layer="l3">
 <span class="layer-label">Layer 3</span>
 <span class="layer-title">AI DREAMS</span>
 </div>
-<div class="response-box" id="res-l3">Awaiting Analysis...</div>
+<div class="response-text res-right" id="res-l3">Awaiting analysis...</div>
 </div>
 
 </div>
@@ -54,20 +54,22 @@ const conceptInput = document.getElementById('user-concept');
 const processBtn = document.getElementById('process-btn');
 const buttons = document.querySelectorAll('.layer-button');
 
-let currentConcept = "Truth";
-
 function updateAllLayers() {
-currentConcept = conceptInput.value || "Truth";
+const concept = conceptInput.value || "Truth";
 
 const library = {
-'l1': `CORE TRUTH: "${currentConcept}" is mathematically anchored. Proof-of-Logic secured. <br><a href="https://github.com/Truth-Stack/TruthStack.org/tree/main/core" target="_blank" style="color:#00bcd4;">SOURCE →</a>`,
-'l2': `REVERSE ANALYSIS: Deconstructing "${currentConcept}" into testable variables. Removing noise.`,
-'l3': `DREAM SEQUENCE: Returning "${currentConcept}" to the neural ocean. Rules of logic suspended.`
+'l1': `VERIFIED: "${concept}" is mathematically anchored. Proof-of-Logic secured. <br><a href="https://github.com/Truth-Stack/TruthStack.org/tree/main/core" target="_blank" style="color:#00bcd4; font-weight:bold;">SOURCE →</a>`,
+'l2': `TESTING: Deconstructing "${concept}" into testable variables. Removing generative noise. Bayesian filters active.`,
+'l3': `DREAMING: Returning "${concept}" to the neural ocean. Rules of logic suspended. Pure potentiality.`
 };
 
 document.getElementById('res-l1').innerHTML = library['l1'];
 document.getElementById('res-l2').innerText = library['l2'];
 document.getElementById('res-l3').innerText = library['l3'];
+
+// Auto-highlight L1 on analyze
+buttons.forEach(b => b.classList.remove('active'));
+document.querySelector('.l1-fortress').classList.add('active');
 }
 
 processBtn.addEventListener('click', updateAllLayers);
@@ -81,4 +83,3 @@ this.classList.add('active');
 </script>
 </body>
 </html>
-
