@@ -13,4 +13,5 @@ Our goal is to ensure that as we move deeper into the age of synthetic media, th
 
 
 
-**Live Dashboard:** [Your-GitHub-Pages-URL-Here]
+**Live Dashboard:** - www.TruthStack.org
+
