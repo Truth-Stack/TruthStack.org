@@ -1,4 +1,7 @@
-root {
+/* RESET */
+* { box-sizing: border-box; }
+
+:root {
 --bg-color: #050505;
 --text-color: #e0e0e0;
 --fortress: #00bcd4;
@@ -7,7 +10,7 @@ root {
 }
 
 body {
-background-color: var(--bg-color);
+background-color: var(--bg-color) !important; /* Force black background */
 color: var(--text-color);
 font-family: 'Inter', sans-serif;
 margin: 0;
@@ -33,24 +36,44 @@ justify-content: space-between;
 
 .stack-container { width: 90%; max-width: 550px; display: flex; flex-direction: column; gap: 15px; margin-top: 10px; }
 
+/* INPUT */
 .input-section { display: flex; gap: 10px; background: #111; padding: 8px; border-radius: 10px; border: 1px solid #222; }
-input { flex-grow: 1; background: transparent; border: none; color: white; padding: 10px; font-family: 'Inter', sans-serif; outline: none; font-size: 0.9rem; }
+input { flex-grow: 1; background: transparent; border: none; color: white; padding: 10px; outline: none; font-size: 0.9rem; }
 button { background: var(--fortress); border: none; color: black; font-weight: 800; padding: 10px 20px; border-radius: 7px; cursor: pointer; transition: 0.2s; }
-button:hover { filter: brightness(1.1); transform: translateY(-1px); }
 
-.stack-layers { display: flex; flex-direction: column; gap: 10px; }
-.layer-button { padding: 18px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.03); transition: 0.3s; }
+/* BUTTONS */
+.stack-layers { display: flex; flex-direction: column; gap: 12px; }
+
+.layer-button {
+padding: 20px;
+border-radius: 12px;
+cursor: pointer;
+transition: 0.3s ease;
+text-align: left; /* Ensures titles aren't weirdly aligned */
+border: 1px solid rgba(255,255,255,0.05);
+}
+
 .l1-fortress { background: linear-gradient(135deg, #00bcd4, #008b9b); }
 .l2-lab { background: linear-gradient(135deg, #0077b6, #005f92); }
 .l3-dream { background: linear-gradient(135deg, #4b0082, #2a004a); }
 
-.layer-button.active { outline: 2px solid white; box-shadow: 0 0 20px rgba(0, 188, 212, 0.2); z-index: 10; }
-.layer-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; }
-.layer-title { display: block; font-size: 1.3rem; font-weight: 800; margin-top: 3px; }
-.layer-subtitle { font-size: 0.8rem; opacity: 0.85; }
+.layer-button.active {
+outline: 2px solid white;
+box-shadow: 0 0 25px rgba(255,255,255,0.1);
+}
 
-.output-console { background: #000; border: 1px solid #222; border-radius: 12px; padding: 25px; min-height: 160px; }
-.status-bar { border-bottom: 1px solid #222; padding-bottom: 12px; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 700; color: #888; }
-.status-dot { height: 8px; width: 8px; border-radius: 50%; transition: 0.4s; }
-.output-body { font-family: 'Courier New', monospace; line-height: 1.5; color: #00bcd4; font-size: 0.9rem; }
+.layer-label { display: block; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; }
+.layer-title { display: block; font-size: 1.4rem; font-weight: 800; margin-top: 4px; text-decoration: none !important; }
+.layer-subtitle { display: block; font-size: 0.8rem; opacity: 0.85; margin-top: 2px; }
+
+/* CONSOLE */
+.output-console { background: #000; border: 1px solid #222; border-radius: 12px; padding: 25px; min-height: 180px; margin-top: 10px; }
+.status-bar { border-bottom: 1px solid #222; padding-bottom: 12px; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; font-size: 0.75rem; color: #888; }
+.status-dot { height: 8px; width: 8px; border-radius: 50%; }
+.output-body { font-family: 'Courier New', monospace; line-height: 1.6; font-size: 0.95rem; }
+
+.fortress-link { color: white !important; font-weight: bold; text-decoration: underline !important; display: inline-block; margin-top: 10px; }
+
+
+
 
