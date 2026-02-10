@@ -3,33 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Truth Stack Protocol</title>
+<title>Truth Stack Protocol | Genesis</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-<h1>Truth Stack</h1>
-<p>Verifiable Reality Protocol</p>
+<div class="logo">TRUTH STACK</div>
+<div class="status-indicator">
+<span class="pulse-dot"></span> SYSTEM ACTIVE
+</div>
 </header>
 
 <main class="stack-container">
-<a href="https://github.com/[Your-Username]/[Your-Repo]/tree/main/core" target="_blank" class="layer-button l3-fortress active" data-layer="l3">
-<span class="layer-label">Layer 3</span>
+<a href="https://github.com/Truth-Stack/TruthStack.org/tree/main/core" target="_blank" class="layer-button l1-fortress active" data-layer="l1">
+<span class="layer-label">Layer 1</span>
 <span class="layer-title">THE FORTRESS</span>
 <span class="layer-subtitle">Mathematical Verification & Core Logic</span>
 </a>
 
-<a href="#signal" class="layer-button l2-signal" data-layer="l2">
+<a href="#lab" class="layer-button l2-lab" data-layer="l2">
 <span class="layer-label">Layer 2</span>
-<span class="layer-title">THE SIGNAL</span>
-<span class="layer-subtitle">Bayesian Filtering & Peer Consensus</span>
+<span class="layer-title">THE LABORATORY</span>
+<span class="layer-subtitle">Evidence Testing & Peer Consensus</span>
 </a>
 
-<a href="#ocean" class="layer-button l1-ocean" data-layer="l1">
-<span class="layer-label">Layer 1</span>
-<span class="layer-title">THE OCEAN</span>
-<span class="layer-subtitle">Raw Data & Distributed Inputs</span>
+<a href="#dreams" class="layer-button l3-dreams" data-layer="l3">
+<span class="layer-label">Layer 3</span>
+<span class="layer-title">AI DREAMS</span>
+<span class="layer-subtitle">Generative Imagination & Raw Potential</span>
 </a>
 
 <div id="stack-output" class="output-console">
@@ -43,44 +45,30 @@ Select a layer to initialize the verification sequence...
 </div>
 </main>
 
-<section class="manifesto">
-<h2>The Protocol of Reality</h2>
-<div class="manifesto-content">
-<p>In the 2026 information landscape, truth has become a casualty of scale. As synthetic data floods our digital commons, the line between <strong>signal</strong> and <strong>hallucination</strong> has blurred.</p>
-<p>The <strong>Truth Stack</strong> is a response to this decay. By decoupling raw data (The Ocean) from its mathematical verification (The Fortress), we provide a verifiable foundation for Spatial Intelligence, Public Policy, and Human Discourse.</p>
-</div>
-</section>
-
-<footer>
-Genesis v1.3.0 | Decentralized Public Infrastructure
-</footer>
-
 <script>
+const demos = {
+'l1': {
+title: "LAYER 1: THE FORTRESS (VERIFIED)",
+text: "REALITY LOCK SUSTAINED. P(H|E) = 0.9998. MATHEMATICAL PROOF COMMITTED TO CORE LOGIC. THE DREAM HAS BEEN MANIFESTED INTO VERIFIED STATE."
+},
+'l2': {
+title: "LAYER 2: THE LABORATORY (TESTING)",
+text: "DISTILLING IMAGINATION... APPLYING BAYESIAN FILTERS. CROSS-EXAMINING PEER DATA. CONSENSUS ACHIEVED: 91.2% VALIDITY SCORE."
+},
+'l3': {
+title: "LAYER 3: AI DREAMS (GENERATIVE)",
+text: "ENTERING GENERATIVE STATE. IMAGINATION ENGINE ACTIVE. RULES OF LOGIC SUSPENDED. NOTE: NOT TO BE TAKEN AS REALITY UNTIL TESTED IN THE LAB."
+}
+};
+
 const buttons = document.querySelectorAll('.layer-button');
 const outputTitle = document.getElementById('output-title');
 const outputText = document.getElementById('output-text');
 
-const demos = {
-'l1': {
-title: "LAYER 1: RAW DATA STREAM",
-text: "SCANNING... [40.7128° N, 74.0060° W] | SENSOR_ID: 99x | RAW_VAL: 0.0034... UNVERIFIED PACKETS DETECTED... NOISE_FLOOR: HIGH."
-},
-'l2': {
-title: "LAYER 2: SIGNAL ANALYSIS",
-text: "FILTERING NOISE... BAYESIAN WEIGHTING APPLIED. CONSENSUS: 89.4%. CROSS-REFERENCING 14 SOURCES. SIGNAL-TO-NOISE RATIO: OPTIMAL."
-},
-'l3': {
-title: "LAYER 3: VERIFIED TRUTH",
-text: "VERIFICATION COMPLETE. P(H|E) = 0.9998. MATHEMATICAL PROOF ANCHORED. REALITY STATE: CONFIRMED. ACCESSING CORE LOGIC..."
-}
-};
-
 buttons.forEach(button => {
 button.addEventListener('click', function(e) {
-// If clicking L2 or L1, prevent navigation so we can see the demo
-if(this.getAttribute('href').startsWith('#')) {
-e.preventDefault();
-}
+// Only prevent default for internal anchors
+if(this.getAttribute('href').startsWith('#')) e.preventDefault();
 
 buttons.forEach(btn => btn.classList.remove('active'));
 this.classList.add('active');
@@ -93,4 +81,6 @@ outputText.innerText = demos[layer].text;
 </script>
 </body>
 </html>
+
+
 
