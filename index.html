@@ -14,23 +14,33 @@
 </header>
 
 <main class="stack-container">
-<a href="https://github.com/[Your-Username]/[Your-Repo]/tree/main/core" target="_blank" class="layer-button l3-fortress active">
+<a href="https://github.com/[Your-Username]/[Your-Repo]/tree/main/core" target="_blank" class="layer-button l3-fortress active" data-layer="l3">
 <span class="layer-label">Layer 3</span>
 <span class="layer-title">THE FORTRESS</span>
 <span class="layer-subtitle">Mathematical Verification & Core Logic</span>
 </a>
 
-<a href="#signal" class="layer-button l2-signal">
+<a href="#signal" class="layer-button l2-signal" data-layer="l2">
 <span class="layer-label">Layer 2</span>
 <span class="layer-title">THE SIGNAL</span>
 <span class="layer-subtitle">Bayesian Filtering & Peer Consensus</span>
 </a>
 
-<a href="#ocean" class="layer-button l1-ocean">
+<a href="#ocean" class="layer-button l1-ocean" data-layer="l1">
 <span class="layer-label">Layer 1</span>
 <span class="layer-title">THE OCEAN</span>
 <span class="layer-subtitle">Raw Data & Distributed Inputs</span>
 </a>
+
+<div id="stack-output" class="output-console">
+<div class="status-bar">
+<span class="status-dot"></span>
+<span id="output-title">SYSTEM INITIALIZED</span>
+</div>
+<div id="output-text" class="output-body">
+Select a layer to initialize the verification sequence...
+</div>
+</div>
 </main>
 
 <section class="manifesto">
@@ -38,26 +48,49 @@
 <div class="manifesto-content">
 <p>In the 2026 information landscape, truth has become a casualty of scale. As synthetic data floods our digital commons, the line between <strong>signal</strong> and <strong>hallucination</strong> has blurred.</p>
 <p>The <strong>Truth Stack</strong> is a response to this decay. By decoupling raw data (The Ocean) from its mathematical verification (The Fortress), we provide a verifiable foundation for Spatial Intelligence, Public Policy, and Human Discourse.</p>
-<p>This is not a walled garden. It is <strong>Digital Public Infrastructure</strong>—designed to be non-extractive, open-source, and anchored in the math of the many.</p>
 </div>
 </section>
 
 <footer>
-Genesis v1.2.1 | Decentralized Public Infrastructure
+Genesis v1.3.0 | Decentralized Public Infrastructure
 </footer>
 
 <script>
-// Logic to move the 'Active' state and 'Engaged' LED on click
 const buttons = document.querySelectorAll('.layer-button');
+const outputTitle = document.getElementById('output-title');
+const outputText = document.getElementById('output-text');
+
+const demos = {
+'l1': {
+title: "LAYER 1: RAW DATA STREAM",
+text: "SCANNING... [40.7128° N, 74.0060° W] | SENSOR_ID: 99x | RAW_VAL: 0.0034... UNVERIFIED PACKETS DETECTED... NOISE_FLOOR: HIGH."
+},
+'l2': {
+title: "LAYER 2: SIGNAL ANALYSIS",
+text: "FILTERING NOISE... BAYESIAN WEIGHTING APPLIED. CONSENSUS: 89.4%. CROSS-REFERENCING 14 SOURCES. SIGNAL-TO-NOISE RATIO: OPTIMAL."
+},
+'l3': {
+title: "LAYER 3: VERIFIED TRUTH",
+text: "VERIFICATION COMPLETE. P(H|E) = 0.9998. MATHEMATICAL PROOF ANCHORED. REALITY STATE: CONFIRMED. ACCESSING CORE LOGIC..."
+}
+};
+
 buttons.forEach(button => {
-button.addEventListener('click', function() {
+button.addEventListener('click', function(e) {
+// If clicking L2 or L1, prevent navigation so we can see the demo
+if(this.getAttribute('href').startsWith('#')) {
+e.preventDefault();
+}
+
 buttons.forEach(btn => btn.classList.remove('active'));
 this.classList.add('active');
+
+const layer = this.getAttribute('data-layer');
+outputTitle.innerText = demos[layer].title;
+outputText.innerText = demos[layer].text;
 });
 });
 </script>
-
 </body>
 </html>
-
 
