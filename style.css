@@ -1,15 +1,15 @@
 :root {
---bg-color: #050505;
+--bg-color: #0a0a0b;
 --text-color: #e0e0e0;
---fortress-glow: #00bcd4;
---lab-glow: #0077b6;
---dream-glow: #4b0082;
+--fortress: #00bcd4;
+--lab: #0077b6;
+--dream: #4b0082;
 }
 
 body {
 background-color: var(--bg-color);
 color: var(--text-color);
-font-family: 'Inter', -apple-system, sans-serif;
+font-family: 'Inter', sans-serif;
 margin: 0;
 display: flex;
 flex-direction: column;
@@ -19,70 +19,106 @@ min-height: 100vh;
 
 header {
 width: 100%;
-padding: 2rem;
+max-width: 800px;
+padding: 40px 20px;
 display: flex;
 justify-content: space-between;
-max-width: 800px;
 }
 
-.logo { font-weight: 800; letter-spacing: 2px; }
-
-.status-indicator { color: #4caf50; font-size: 0.8rem; }
-
-.pulse-dot {
-height: 8px; width: 8px;
-background-color: #4caf50;
-border-radius: 50%;
-display: inline-block;
-margin-right: 5px;
-animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-0% { opacity: 1; }
-50% { opacity: 0.3; }
-100% { opacity: 1; }
-}
+.logo { font-weight: 800; letter-spacing: 3px; font-size: 1.2rem; color: var(--fortress); }
 
 .stack-container {
+width: 90%;
+max-width: 600px;
 display: flex;
 flex-direction: column;
-gap: 15px;
-width: 90%;
-max-width: 500px;
-margin-top: 2rem;
+gap: 20px;
 }
+
+/* INPUT SECTION */
+.input-section {
+display: flex;
+gap: 10px;
+background: #1a1a1c;
+padding: 10px;
+border-radius: 12px;
+border: 1px solid #333;
+}
+
+input {
+flex-grow: 1;
+background: transparent;
+border: none;
+color: white;
+padding: 10px;
+font-family: 'Inter', sans-serif;
+outline: none;
+}
+
+button {
+background: var(--fortress);
+border: none;
+color: black;
+font-weight: 700;
+padding: 10px 20px;
+border-radius: 8px;
+cursor: pointer;
+transition: 0.3s;
+}
+
+button:hover { opacity: 0.8; transform: translateY(-1px); }
+
+/* LAYERS */
+.stack-layers { display: flex; flex-direction: column; gap: 12px; }
 
 .layer-button {
 text-decoration: none;
-color: white;
 padding: 20px;
 border-radius: 12px;
-transition: all 0.3s ease;
-display: flex;
-flex-direction: column;
-border: 1px solid rgba(255,255,255,0.1);
+border: 1px solid rgba(255,255,255,0.05);
+transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+color: white;
 }
 
 .l1-fortress { background: linear-gradient(135deg, #00bcd4, #008b9b); }
 .l2-lab { background: linear-gradient(135deg, #0077b6, #005f92); }
 .l3-dreams { background: linear-gradient(135deg, #4b0082, #2a004a); }
 
-.layer-button:hover { transform: scale(1.02); filter: brightness(1.2); }
-.layer-button.active { outline: 3px solid white; box-shadow: 0 0 20px rgba(255,255,255,0.2); }
-
-.layer-label { font-size: 0.7rem; opacity: 0.8; text-transform: uppercase; }
-.layer-title { font-size: 1.4rem; font-weight: 700; margin: 4px 0; }
-.layer-subtitle { font-size: 0.8rem; opacity: 0.9; }
-
-.output-console {
-background: #111;
-border-radius: 12px;
-padding: 20px;
-border: 1px solid #333;
-min-height: 150px;
+.layer-button:hover { transform: translateX(5px); filter: brightness(1.1); }
+.layer-button.active {
+outline: 2px solid white;
+box-shadow: 0 0 30px rgba(0, 188, 212, 0.3);
 }
 
-.status-bar { border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 10px; }
-.status-dot { height: 6px; width: 6px; background: #00bcd4; display: inline-block; border-radius: 50%; }
-.output-body { font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.4; color: #00bcd4; }
+.layer-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; }
+.layer-title { display: block; font-size: 1.5rem; font-weight: 800; margin-top: 5px; }
+.layer-subtitle { font-size: 0.85rem; opacity: 0.9; }
+
+/* CONSOLE */
+.output-console {
+background: #000;
+border: 1px solid #222;
+border-radius: 12px;
+padding: 25px;
+min-height: 180px;
+box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+}
+
+.status-bar {
+border-bottom: 1px solid #222;
+padding-bottom: 12px;
+margin-bottom: 15px;
+display: flex;
+align-items: center;
+gap: 10px;
+font-size: 0.8rem;
+font-weight: 700;
+}
+
+.status-dot { height: 8px; width: 8px; border-radius: 50%; background: #4b0082; }
+
+.output-body {
+font-family: 'Courier New', monospace;
+line-height: 1.6;
+color: #a0a0a0;
+}
