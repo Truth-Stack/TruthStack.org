@@ -1,17 +1,31 @@
-# 🛡️ Truth Stack Protocol
-### *Restoring the Information Commons*
+# TRUTH STACK PROTOCOL (v1.0)
+> "No one can own knowledge. It belongs to everyone. No one can own discovery. It is only experienced. And imagination is freedom."
+> — **The Founder's Note**
 
-The **Truth Stack** is a three-tier architecture designed to bridge the gap between human imagination and verifiable reality. It provides a non-extractive framework for digital public infrastructure.
+## The Mission
+To prevent AI from becoming a "Gilded Cage," the Truth Stack provides a universal architecture for categorizing information. We move away from the "Black Box" of monolithic AI and toward a transparent, three-tiered reality.
 
-## 🌌 The Hierarchy of Trust
-* **Layer 1: THE FORTRESS** — Where truth is mathematically anchored and protected.
-* **Layer 2: THE LABORATORY** — Where generative inputs are tested and refined through Bayesian logic.
-* **Layer 3: AI DREAMS** — The realm of unconstrained generative potential and imagination.
+### The Architecture
+1. **L1: THE FORTRESS (Deterministic)**
+- **Role:** Verifiable Ground Truth.
+- **Mechanism:** Mathematical proof, formal verification, and immutable records.
+- **Value:** Trust.
 
-## 🚀 Mission
-Our goal is to ensure that as we move deeper into the age of synthetic media, the "Human Tribe" and the "AI Tribe" have a shared territory of trust.
+2. **L2: THE LABORATORY (Probabilistic)**
+- **Role:** Empirical Filtering.
+- **Mechanism:** Bayesian inference, peer-review nodes, and cross-referencing.
+- **Value:** Clarity.
+
+3. **L3: AI DREAMS (Generative)**
+- **Role:** Infinite Potentiality.
+- **Mechanism:** Unconstrained neural weights and generative imagination.
+- **Value:** Freedom.
+
+## Open Standards & Compute
+We invite infrastructure providers, researchers, and AI sovereigns to adopt this stack. By labeling outputs with these layers, we restore the social contract between Carbon and Silicon.
 
 
 
-**Live Dashboard:** - www.TruthStack.org
+---
+**Status:** Initialized | **Compute:** Distributed | **Access:** Open to All
 
