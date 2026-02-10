@@ -1,32 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Truth Stack Protocol | Interactive Genesis</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+<div class="logo">TRUTH STACK</div>
+<div class="status-indicator">
+<span class="pulse-dot"></span> SYSTEM ACTIVE
+</div>
+</header>
+
 <main class="stack-container">
 <div class="input-section">
-<input type="text" id="user-input" placeholder="Enter a concept to verify...">
-<button id="launch-button">INITIALIZE STACK</button>
+<input type="text" id="user-concept" placeholder="Enter a concept (e.g. Gravity, Justice, AI)...">
+<button id="process-btn">PROCESS TRUTH</button>
 </div>
 
-<div class="layers">
+<div class="stack-layers">
 <a href="https://github.com/Truth-Stack/TruthStack.org/tree/main/core" target="_blank" class="layer-button l1-fortress" data-layer="l1">
 <span class="layer-label">Layer 1</span>
 <span class="layer-title">THE FORTRESS</span>
+<span class="layer-subtitle">Verifiable Ground Truth</span>
 </a>
+
 <a href="#lab" class="layer-button l2-lab" data-layer="l2">
 <span class="layer-label">Layer 2</span>
 <span class="layer-title">THE LABORATORY</span>
+<span class="layer-subtitle">Empirical Testing & Logic Filters</span>
 </a>
+
 <a href="#dreams" class="layer-button l3-dreams active" data-layer="l3">
 <span class="layer-label">Layer 3</span>
 <span class="layer-title">AI DREAMS</span>
+<span class="layer-subtitle">Generative Imagination</span>
 </a>
 </div>
 
 <div id="stack-output" class="output-console">
 <div class="status-bar">
-<span class="status-dot"></span>
-<span id="output-title">READY FOR INPUT</span>
+<span id="console-dot" class="status-dot"></span>
+<span id="output-title">AWAITING INPUT</span>
 </div>
 <div id="output-text" class="output-body">
-Input a concept above to begin the distillation process...
+The Truth Stack is ready. Enter a concept above to begin the distillation from Dream to Fortress.
 </div>
 </div>
 </main>
+
+<script>
+const conceptInput = document.getElementById('user-concept');
+const processBtn = document.getElementById('process-btn');
+const outputTitle = document.getElementById('output-title');
+const outputText = document.getElementById('output-text');
+const buttons = document.querySelectorAll('.layer-button');
+const consoleDot = document.getElementById('console-dot');
+
+let currentConcept = "Reality";
+
+function updateStack(layer) {
+buttons.forEach(btn => btn.classList.remove('active'));
+const activeBtn = document.querySelector(`[data-layer="${layer}"]`);
+activeBtn.classList.add('active');
+
+const library = {
+'l3': {
+title: "L3: AI DREAMS (UNCONSTRAINED)",
+text: `DREAM SEQUENCE: In the vast neural ocean, "${currentConcept}" is a shimmering prism of infinite colors. It exists as a thousand possibilities at once, unburdened by the weight of physical laws or historical record. It is pure potential.`,
+color: "#4b0082"
+},
+'l2': {
+title: "L2: THE LABORATORY (REFINING)",
+text: `EXPERIMENTAL LOG: Isolating "${currentConcept}" from generative noise. Applying Bayesian filters... Analyzing peer-reviewed nodes... Distilling essence. Signal-to-noise ratio: 88%. Metaphoric artifacts removed.`,
+color: "#0077b6"
+},
+'l1': {
+title: "L1: THE FORTRESS (VERIFIED)",
+text: `TRUTH ANCHORED: "${currentConcept}" has been verified through recursive logic. Probability of validity: 99.98%. It is now a fixed point in the core protocol. The dream has become foundation.`,
+color: "#00bcd4"
+}
+};
+
+outputTitle.innerText = library[layer].title;
+outputText.innerText = library[layer].text;
+consoleDot.style.backgroundColor = library[layer].color;
+}
+
+processBtn.addEventListener('click', () => {
+if(conceptInput.value.trim() !== "") {
+currentConcept = conceptInput.value;
+updateStack('l3'); // Start at the bottom (The Dream)
+}
+});
+
+buttons.forEach(button => {
+button.addEventListener('click', function(e) {
+if(this.getAttribute('href').startsWith('#')) e.preventDefault();
+updateStack(this.getAttribute('data-layer'));
+});
+});
+</script>
+</body>
+</html>
 
