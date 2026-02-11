@@ -11,12 +11,11 @@
 
 <header>
 <div class="logo">TRUTH STACK</div>
-<div class="status-indicator"><span class="pulse-dot"></span> CONCEPT ONLY - <u>NOT</u> ACTIVE</div>
+<div class="status-indicator"><span class="pulse-dot"></span> SYSTEM ACTIVE</div>
 </header>
 
 <main class="stack-container">
 <div class="vertical-stack">
-
 <div class="layer-button l1-fortress active" data-layer="l1">
 <span class="layer-label">Layer 1</span>
 <span class="layer-title">THE FORTRESS</span>
@@ -26,7 +25,7 @@
 <div class="layer-button l2-lab" data-layer="l2">
 <span class="layer-label">Layer 2</span>
 <span class="layer-title">THE LABORATORY</span>
-<span class="layer-subtitle">Empirical Testing & Logic Filters</span>
+<span class="layer-subtitle">Empirical Testing & Logic</span>
 </div>
 
 <div class="layer-button l3-dream" data-layer="l3">
@@ -34,7 +33,6 @@
 <span class="layer-title">AI DREAMS</span>
 <span class="layer-subtitle">Generative Imagination</span>
 </div>
-
 </div>
 
 <div id="stack-output" class="output-console">
@@ -46,51 +44,73 @@
 Select a layer to initialize the verification sequence...
 </div>
 </div>
+
+<section class="experiment-section">
+<div class="exp-toggle-header">
+<h2>THOUGHT EXPERIMENTS</h2>
+<div class="toggle-container">
+<button id="btn-food" class="toggle-btn active" onclick="switchExperiment('food')">Garlic Ice Cream</button>
+<button id="btn-grid" class="toggle-btn" onclick="switchExperiment('grid')">Smart Grid</button>
+</div>
+</div>
+
+<div id="experiment-display">
+</div>
+</section>
 </main>
 
 <script>
-const outputTitle = document.getElementById('output-title');
-const outputText = document.getElementById('output-text');
-const buttons = document.querySelectorAll('.layer-button');
-const consoleDot = document.getElementById('console-dot');
-
+// --- LOGIC FOR MAIN STACK ---
 const protocol = {
-'l1': {
-title: "L1: THE FORTRESS (VERIFIED)",
-text: "The final arbiter of reality. Here, information is anchored through recursive logic and mathematical proof. It is the solid ground upon which institutions are built.",
-color: "#00bcd4"
+'l1': { title: "L1: THE FORTRESS", text: "The final arbiter of reality. Information anchored through recursive logic and mathematical proof. Standardized, deterministic, and safe.", color: "#00bcd4" },
+'l2': { title: "L2: THE LABORATORY", text: "The filtering tier. Raw inputs are cross-referenced, tested against empirical data, and subjected to Bayesian analysis to remove noise.", color: "#0077b6" },
+'l3': { title: "L3: AI DREAMS", text: "The realm of pure potentiality. Unconstrained imagination where ideas begin as fluid metaphors. Non-deterministic and free.", color: "#4b0082" }
+};
+
+function updateMainLayer(id) {
+document.querySelectorAll('.layer-button').forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-layer') === id));
+document.getElementById('output-title').innerText = protocol[id].title;
+document.getElementById('output-text').innerText = protocol[id].text;
+document.getElementById('console-dot').style.backgroundColor = protocol[id].color;
+}
+
+document.querySelectorAll('.layer-button').forEach(button => {
+button.addEventListener('click', () => updateMainLayer(button.getAttribute('data-layer')));
+});
+
+// --- LOGIC FOR THOUGHT EXPERIMENTS ---
+const experiments = {
+food: {
+title: "Prompt: 'Make me Garlic Ice Cream'",
+l1: "<strong>Fortress:</strong> Roasted garlic (180°F for 20 mins) reduces sulfur volatility. Standardized egg-yolk lecithin required for fat stabilization. Formula verified for safety.",
+l2: "<strong>Laboratory:</strong> Cross-referencing 500+ sweet-savory nodes. Garlic pairs mathematically with honey and vanilla. Bayesian probability of palate acceptance: 64%.",
+l3: "<strong>Dreams:</strong> A frozen tundra of ivory cloves. A memory of a kitchen in Provence at midnight. We fold in clouds of garlic smoke and serve it in a frozen onion."
 },
-'l2': {
-title: "L2: THE LABORATORY (EMPIRICAL)",
-text: "The filtering tier. Raw inputs are cross-referenced, tested against the Information Commons, and subjected to Bayesian analysis to separate signal from noise.",
-color: "#0077b6"
-},
-'l3': {
-title: "L3: AI DREAMS (GENERATIVE)",
-text: "The realm of pure potentiality. Here, the rules of the world don't apply. It is a vast, unconstrained imagination engine where ideas begin as fluid metaphors.",
-color: "#4b0082"
+grid: {
+title: "Prompt: '100% Solar Grid by Tomorrow'",
+l1: "<strong>Fortress:</strong> ACCESS DENIED. Thermal limits of existing copper transformers ($180°C$) will be exceeded. Phase synchronization impossible on 24-hour lead time.",
+l2: "<strong>Laboratory:</strong> Modeling 10,000 Monte Carlo simulations. 15% integration possible within 30 days using Smart Inverters. 92% confidence interval for stability.",
+l3: "<strong>Dreams:</strong> A city where every window is a lung breathing in the sun. A mycelial network of light where energy is a rhythmic heartbeat rather than a utility."
 }
 };
 
-function updateLayer(id) {
-buttons.forEach(btn => btn.classList.remove('active'));
-document.querySelector(`[data-layer="${id}"]`).classList.add('active');
+function switchExperiment(type) {
+const data = experiments[type];
+document.getElementById('btn-food').classList.toggle('active', type === 'food');
+document.getElementById('btn-grid').classList.toggle('active', type === 'grid');
 
-outputTitle.innerText = protocol[id].title;
-outputText.innerText = protocol[id].text;
-consoleDot.style.backgroundColor = protocol[id].color;
+document.getElementById('experiment-display').innerHTML = `
+<p class="exp-title-text">${data.title}</p>
+<div class="exp-card l1-accent"><div class="card-body">${data.l1}</div></div>
+<div class="exp-card l2-accent"><div class="card-body">${data.l2}</div></div>
+<div class="exp-card l3-accent"><div class="card-body">${data.l3}</div></div>
+`;
 }
 
-buttons.forEach(button => {
-button.addEventListener('click', () => updateLayer(button.getAttribute('data-layer')));
-});
-
-// Initialize
-updateLayer('l1');
+// Initialize both sections
+updateMainLayer('l1');
+switchExperiment('food');
 </script>
 </body>
 </html>
-
-
-
 
